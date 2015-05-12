@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: apache2-nativex
+# Cookbook Name:: apache2-simplyadrian
 # Recipe:: vhost
 #
-# Copyright 2014, NativeX
+# Copyright 2014, simplyadrian
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -10,7 +10,7 @@
 include_recipe "apache2"
 
 # Set up the Apache virtual host 
-web_app "#{node['apache2-nativex']['app_name']}" do 
+web_app "#{node['apache2-simplyadrian']['app_name']}" do 
   server_name node['hostname']
   docroot "#{node['apache2']['docroot_dir']}"
   server_aliases [node['fqdn'], node['hostname']]
@@ -20,7 +20,7 @@ web_app "#{node['apache2-nativex']['app_name']}" do
   log_dir node['apache']['log_dir'] 
 end
 
-directory "#{node['apache2']['docroot_dir']}/#{node['apache2-nativex']['app_name']}" do
+directory "#{node['apache2']['docroot_dir']}/#{node['apache2-simplyadrian']['app_name']}" do
   owner "apache" 
   group "apache"
   mode "0755"
@@ -28,7 +28,7 @@ directory "#{node['apache2']['docroot_dir']}/#{node['apache2-nativex']['app_name
   recursive true
 end
 
-template "#{node['apache2']['docroot_dir']}/#{node['apache2-nativex']['app_name']}/index.html" do
+template "#{node['apache2']['docroot_dir']}/#{node['apache2-simplyadrian']['app_name']}/index.html" do
   source "index.html.erb"
   mode "0644"
 end
